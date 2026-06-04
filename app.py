@@ -14,7 +14,7 @@ app = Flask(__name__)
 def load_tokens():
     try:
         # Owner: @senkucodex
-        with open("spam_ind.json", "r") as file:
+        with open("token_ind.json", "r") as file:
             data = json.load(file)
         tokens = [item["token"] for item in data]  
         return tokens
@@ -72,7 +72,7 @@ def spam():
     tokens = load_tokens()
     if not tokens:
         return jsonify({
-            "error": "No tokens found in spam_ind.json",
+            "error": "No tokens found in token_ind.json",
             "owner": "@senkucodex"
         }), 500
 
